@@ -19,16 +19,6 @@ class App extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   axios.get("https://api.openbrewerydb.org/v1/breweries").then((res) => {
-  //     const breweriesList = res.data;
-  //     this.setState({ 
-  //       arrayOfBreweries: breweriesList,
-  //       originalBreweries: breweriesList
-  //     });
-  //   });
-  // }
-
   componentDidMount() {
     this.fetchRandomBreweries()
   }
