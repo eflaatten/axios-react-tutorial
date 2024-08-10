@@ -14,8 +14,7 @@ class App extends Component {
       breweryState: '',
       breweryWebsite: '',
       arrayOfBreweries: [],
-      searchQueryCity: '',
-      searchQueryState: ''
+      searchQueryCity: ''
     };
   }
 
@@ -37,19 +36,11 @@ class App extends Component {
     })
   }
 
-  fetchBreweriesByState = (e) => {
-    axios.get(`https://api.openbrewerydb.org/v1/breweries?by_state=${this.state.searchQueryState}`).then((res) => {
-      const breweriesList = res.data
-      this.setState({arrayOfBreweries: breweriesList})
-    })
-  }
 
   handleSubmit = (e) => {
     e.preventDefault()
     if(this.state.searchQueryCity){
       this.fetchBreweriesByCity()
-    } else if(this.state.searchQueryState){
-      this.fetchBreweriesByState()
     } else {
       this.fetchRandomBreweries()
     }
@@ -67,13 +58,6 @@ class App extends Component {
               placeholder='City'
               onChange={(e) => this.setState({ searchQueryCity: e.target.value })}
             />
-
-            <input
-              type='text'
-              placeholder='State'
-              onChange={(e) => this.setState({ searchQueryState: e.target.value })}
-            />
-            <button type='submit'>Search</button>
           </form>
 
           <ul>
