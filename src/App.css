@@ -87,13 +87,25 @@ html, body {
 
 #brewery-card h3 {
   color: white;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 #brewery-card p {
   color: white;
   font-size: 18px;
   margin: 5px 0;
+}
+
+#web-url:hover {
+  color: red;
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+
+#heart-icon:hover {
+  transform: scale(1.2);
+  transition: 0.2s;
 }
 
 @media(max-width: 1000px){

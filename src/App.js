@@ -14,7 +14,9 @@ class App extends Component {
       breweryState: '',
       breweryWebsite: '',
       arrayOfBreweries: [],
-      searchQueryCity: ''
+      searchQueryCity: '',
+      isLiked: false,
+      arrayOfLikes: []
     };
   }
 
@@ -44,6 +46,16 @@ class App extends Component {
     } else {
       this.fetchRandomBreweries()
     }
+  }
+
+  handleLike = (index) => {
+    const newLikes = [...this.state.arrayOfLikes]
+    newLikes[index] = !newLikes[index]
+    this.setState({ arrayOfLikes: newLikes })
+  }
+
+  showLikes = () => {
+    this.setState({ arrayOfLikes: [...this.state.arrayOfLikes, this.state.breweryName]})
   }
 
   render() {
