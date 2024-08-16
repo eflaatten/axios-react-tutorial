@@ -4,7 +4,7 @@ import { faLink, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const BreweryCard = (props) => {
   
-  const { breweryName, breweryAddress, breweryCity, breweryState, breweryWebsite, isLiked} = props
+  const { breweryName, breweryAddress, breweryCity, breweryState, breweryWebsite, isLiked, handleLike, index} = props
 
   const handleUrlClick = () => {
     window.open(breweryWebsite, "_blank");
@@ -22,7 +22,9 @@ const BreweryCard = (props) => {
           <FontAwesomeIcon id='web-url' style={{color: 'blue', transition: '0.2s'}} icon={faLink} />
         </div>
 
-        <div>
+        <div 
+        key={index}
+        onClick={handleLike}>
           <FontAwesomeIcon 
           id='heart-icon' 
           icon={faHeart} 

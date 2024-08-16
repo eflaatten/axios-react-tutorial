@@ -49,13 +49,7 @@ class App extends Component {
   }
 
   handleLike = (index) => {
-    const newLikes = [...this.state.arrayOfLikes]
-    newLikes[index] = !newLikes[index]
-    this.setState({ arrayOfLikes: newLikes })
-  }
-
-  showLikes = () => {
-    this.setState({ arrayOfLikes: [...this.state.arrayOfLikes, this.state.breweryName]})
+    this.setState({isLiked: !this.state.isLiked})
   }
 
   render() {
@@ -82,6 +76,8 @@ class App extends Component {
                 breweryCity={brewery.city}
                 breweryState={brewery.state}
                 breweryWebsite={brewery.website_url}
+                isLiked={this.state.isLiked}
+                handleLike={() => this.handleLike(index)}
               />
             ))}
           </ul>
