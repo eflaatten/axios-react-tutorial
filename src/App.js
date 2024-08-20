@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { Component } from "react";
 import "./App.css";
+import Button from "@mui/material/Button";
 import BreweryCard from "./BreweryCard";
+import MuiCardBrewery from "./MuiCardBrewery";
 
 class App extends Component {
   constructor(props) {
@@ -64,30 +66,26 @@ class App extends Component {
           <form onSubmit={this.handleSubmit}>
             <input
               type="text"
-              placeholder="City"
+              placeholder="Search by city..."
               onChange={(e) =>
                 this.setState({ searchQueryCity: e.target.value })
               }
             />
           </form>
 
-          <ul>
-            {this.state.arrayOfBreweries.length === 0 && (
-              <h2>No breweries found</h2>
-            )}
-            {this.state.arrayOfBreweries.map((brewery, index) => (
-              <BreweryCard
-                key={index}
-                breweryName={brewery.name}
-                breweryAddress={brewery.street}
-                breweryCity={brewery.city}
-                breweryState={brewery.state}
-                breweryWebsite={brewery.website_url}
-                isLiked={this.state.isLiked}
-                handleLike={() => this.handleLike(index)}
-              />
-            ))}
-          </ul>
+        {this.state.arrayOfBreweries.map((brewery, index) => {
+          return (
+            <MuiCardBrewery 
+              key={index}
+              breweryName={brewery.name}
+              breweryAddress={brewery.street}
+              breweryCity={brewery.city}
+              breweryState={brewery.state}
+              breweryWebsite={brewery.website_url}
+              handleLike={this.handleLike}
+            />
+          )
+        })}
         </header>
       </div>
     );
